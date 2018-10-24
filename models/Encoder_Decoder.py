@@ -78,13 +78,14 @@ def build_encoder_decoder(inputs, num_classes, preset_model = "Encoder-Decoder",
 	net = conv_block(net, 512)
 	net = conv_block(net, 512)
 	net = conv_block(net, 512)
-	net = slim.pool(net, [2, 2], stride=[2, 2], pooling_type='MAX')
-
+	#net = slim.pool(net, [2, 2], stride=[2, 2], pooling_type='MAX')
+	
+	#1st mod to reduce no. of trainable-params!
 
 	#####################
 	# Upsampling path #
 	#####################
-	net = conv_transpose_block(net, 512)
+	#net = conv_transpose_block(net, 512)
 	net = conv_block(net, 512)
 	net = conv_block(net, 512)
 	net = conv_block(net, 512)
