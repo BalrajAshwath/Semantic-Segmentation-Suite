@@ -42,7 +42,10 @@ def prepare_data(dataset_dir):
     return train_input_names,train_output_names, val_input_names, val_output_names, test_input_names, test_output_names
 
 def load_image(path):
-    image = cv2.cvtColor(cv2.imread(path,-1), cv2.COLOR_BGR2RGB)
+    #Use -1 or 1 flags if you want to preserve the full depth(channels) of input image or if you want to load the image with default 3 channels! (1 is the default flag)
+    #Refer imread() documentation for more info: https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_image_display/py_image_display.html
+    #image = cv2.cvtColor(cv2.imread(path,-1), cv2.COLOR_BGR2RGB)
+    image = cv2.cvtColor(cv2.imread(path), cv2.COLOR_BGR2RGB)
     return image
 
 # Takes an absolute file path and returns the name of the file without th extension
